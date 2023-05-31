@@ -1,0 +1,19 @@
+{
+  "short_name": "Gringott",
+  "name": "Gringott's",
+  "description": "An application to make it easier to generate transactions for the Abracadabra multisig.",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

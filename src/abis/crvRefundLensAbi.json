@@ -1,0 +1,93 @@
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "inputs": [
+      { "internalType": "contract ICauldronV4[]", "name": "cauldrons", "type": "address[]" },
+      { "internalType": "address", "name": "user", "type": "address" },
+      { "internalType": "address", "name": "votingAddress", "type": "address" }
+    ],
+    "name": "getRefundInfo",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address[]", "name": "cauldrons", "type": "address[]" },
+          { "internalType": "uint256", "name": "spellPrice", "type": "uint256" },
+          { "internalType": "uint256[]", "name": "userBorrowAmounts", "type": "uint256[]" },
+          { "internalType": "uint256", "name": "userVeCrvVoted", "type": "uint256" },
+          { "internalType": "uint256", "name": "userBribesReceived", "type": "uint256" }
+        ],
+        "internalType": "struct CrvRefundLens.RefundInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSpellPrice",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalMimGaugeVotes",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "contract ICauldronV4[]", "name": "cauldrons", "type": "address[]" },
+      { "internalType": "address", "name": "user", "type": "address" }
+    ],
+    "name": "getUserBorrowAmounts",
+    "outputs": [{ "internalType": "uint256[]", "name": "borrows", "type": "uint256[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "votingAddress", "type": "address" }],
+    "name": "getVoterMimGaugePower",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "votingAddress", "type": "address" }],
+    "name": "getVoterMimGaugeVotes",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "votingAddress", "type": "address" }],
+    "name": "getVoterSpellBribes",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "votingAddress", "type": "address" }],
+    "name": "getVoterSpellBribesUsd",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "votingAddress", "type": "address" }],
+    "name": "getVoterVeCrv",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getWeeklySpellBribes",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
