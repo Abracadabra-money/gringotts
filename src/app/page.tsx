@@ -55,16 +55,20 @@ export default function Home() {
 
 function CurveRepayer() {
   const [refundDate, setRefundDate] = useState(findPreviousThursday().format('YYYY-MM-DD'));
-  const [borrowerAddress, setBorrowerAddress] = useState('');
-  const [voterAddress, setVoterAddress] = useState('');
+  const [borrowerAddress, setBorrowerAddress] = useState('0x7a16ff8270133f063aab6c9977183d9e72835428');
+  const [voterAddress, setVoterAddress] = useState('0x9B44473E223f8a3c047AD86f387B80402536B029');
   const [repaymentResponse, setRepaymentResponse] = useState<RepaymentResponse>();
 
   const { sdk, safe } = useSafeAppsSDK();
 
   // Restore form state from local storage
   useEffect(function () {
-    setBorrowerAddress(safeJsonParse(window.localStorage.getItem('borrowerAddress')));
-    setVoterAddress(safeJsonParse(window.localStorage.getItem('voterAddress')));
+    setBorrowerAddress(
+      safeJsonParse(window.localStorage.getItem('borrowerAddress')) || '0x7a16ff8270133f063aab6c9977183d9e72835428'
+    );
+    setVoterAddress(
+      safeJsonParse(window.localStorage.getItem('voterAddress')) || '0x9B44473E223f8a3c047AD86f387B80402536B029'
+    );
     setRefundDate(safeJsonParse(window.localStorage.getItem('refundDate')));
   }, []);
 
