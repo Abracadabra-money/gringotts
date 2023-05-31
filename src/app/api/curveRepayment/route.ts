@@ -7,7 +7,6 @@ import { getRefundInfo } from '@/models/RefundCalculator';
 export async function POST(request: NextRequest) {
   const { time, borrowerAddress, voterAddress } = await request.json();
   let closestBlock = await findClosestBlock(time);
-  console.log(time, closestBlock);
   let refundInfo = await getRefundInfo(CRV_CAULDRONS, borrowerAddress, voterAddress, closestBlock);
 
   return NextResponse.json({
@@ -55,7 +54,6 @@ async function findClosestBlock(time: number) {
     }
   }
 
-  console.log(time, upperBound);
   // Return the block number of the closest block after the target time
   return upperBound;
 }

@@ -22,10 +22,6 @@ const FlashMessageContext = createContext<FlashMessageContextType | null>(null);
 export const FlashMessageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [flashMessage, setFlashMessage] = useState<FlashMessage | null>(null);
 
-  useEffect(() => {
-    console.log(flashMessage);
-  }, [flashMessage]);
-
   const clearFlashMessage = () => {
     setFlashMessage(null);
   };

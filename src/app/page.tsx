@@ -53,7 +53,7 @@ export default function Home() {
   );
 }
 
-export function CurveRepayer() {
+function CurveRepayer() {
   const [refundDate, setRefundDate] = useState(findPreviousThursday().format('YYYY-MM-DD'));
   const [borrowerAddress, setBorrowerAddress] = useState('');
   const [voterAddress, setVoterAddress] = useState('');
@@ -250,7 +250,7 @@ function StatsBar(props: { stats: any }) {
   );
 }
 
-export function Card(props: { refunds: any }) {
+function Card(props: { refunds: any }) {
   const cauldrons = [
     {
       address: '0x207763511da879a900973A5E092382117C3c1588',
