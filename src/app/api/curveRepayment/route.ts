@@ -3,15 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import crvRefundLensAbi from '../../../abis/crvRefundLensAbi.json';
 import { CRV_CAULDRONS, CRV_LENS_ADDR } from '@/helpers/constants';
 import { getRefundInfo } from '@/models/RefundCalculator';
+import { getDistributionInfo } from '@/models/DistributionCalculator';
 
 export async function POST(request: NextRequest) {
   const { time, borrowerAddress, voterAddress } = await request.json();
   let closestBlock = await findClosestBlock(time);
   let refundInfo = await getRefundInfo(CRV_CAULDRONS, borrowerAddress, voterAddress, closestBlock);
+  let distributionInfo = await getDistributionInfo(refundInfo.totalRefund);
 
   return NextResponse.json({
     closestBlock: closestBlock,
     ...refundInfo,
+    ...distributionInfo,
   });
 }
 
@@ -24,7 +27,7 @@ async function findClosestBlock(time: number) {
   const currentBlockNumber = await provider.getBlockNumber();
 
   // Set the initial lower bound and upper bound for the binary search
-  let lowerBound = 0;
+  let lowerBound = 16164356; // Block of CRV cauldron deploy
   let upperBound = currentBlockNumber;
 
   // Set a flag to indicate if the target block has been found

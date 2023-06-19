@@ -14,13 +14,20 @@ import { ChangeEvent, Dispatch, MouseEvent, SetStateAction, useCallback, useEffe
 import { useSafeAppsSDK } from '@safe-global/safe-apps-react-sdk';
 import { useFlashMessage } from '@/helpers/UseFlashMessage';
 import { MetaTransaction } from 'ethers-multisend';
-import { getMimApproveTx, getMimDegenboxDepositTx, getMimRepayTx } from '@/models/GnosisEncoder';
+import {
+  getMimApproveTx,
+  getMimDegenboxDepositTx,
+  getMimRepayTx,
+  getMimTransferTx,
+  getMimWithdrawTx,
+} from '@/models/GnosisEncoder';
 import { MIM_TREASURY_ADDR } from '@/helpers/constants';
 import { handleChange, renderInputGroup } from '@/helpers/formUtils';
 import _ from 'underscore';
 import { StatsBar } from '@/components/StatsBar';
 import { RepaymentResponse } from '@/helpers/interfaces';
 import { Card } from '@/components/Card';
+import { getDegenBoxMimBalance } from '@/models/DistributionCalculator';
 
 export default function Home() {
   return (
@@ -57,6 +64,8 @@ function CurveRepayer() {
     // This should be contained in the refund response...
     try {
       if (!!repaymentResponse) {
+        txs.push(getMimWithdrawTx(repaymentResponse.totalWithdraw));
+        txs.push(getMimTransferTx(repaymentResponse.totalDistribution));
         txs.push(getMimApproveTx(repaymentResponse.totalRefund));
         txs.push(getMimDegenboxDepositTx(MIM_TREASURY_ADDR, repaymentResponse.totalRefund));
         repaymentResponse.refunds.forEach((refund) => {

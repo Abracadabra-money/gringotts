@@ -20,12 +20,24 @@ interface Refund {
   finalRefund: BigNumber;
 }
 
+interface RefundInfo {
+  borrowAddr: string;
+  votingAddr: string;
+  cauldrons: Array<string>;
+  spellPrice: BigNumber;
+  userVeCrvVoted: BigNumber;
+  userBribesReceived: BigNumber;
+  totalRefund: BigNumber;
+  totalBorrow: BigNumber;
+  refunds: Array<Refund>;
+}
+
 export async function getRefundInfo(
   cauldronAddrs: Array<string>,
   borrowAddr: string,
   votingAddr: string,
   blockNumber?: number
-) {
+): Promise<RefundInfo> {
   let refundLensResponse = await getRefundLensResponse(cauldronAddrs, borrowAddr, votingAddr, blockNumber);
   let supplementalInfo = getSupplementalInfo(refundLensResponse);
 

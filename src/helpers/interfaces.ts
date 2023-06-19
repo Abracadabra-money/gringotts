@@ -12,6 +12,8 @@ export interface RepaymentResponse {
   totalRefund: BigNumber;
   totalBorrowed: BigNumber;
   refunds: Array<RefundResponse>;
+  totalWithdraw: BigNumber;
+  totalDistribution: BigNumber;
 }
 
 export interface RefundResponse {
