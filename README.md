@@ -16,11 +16,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Adding the Gnosis Safe App
+## Adding Gringotts to the Gnosis Safe
 
 - In order to test the local development of Gringott's, start the development server.
 - Next, visit the [Abracadabra Gnosis Safe](https://app.safe.global/apps/custom?safe=eth:0xDF2C270f610Dc35d8fFDA5B453E74db5471E126B) and add a custom app by clicking on Apps > My Custom Apps > Add custom Safe App.
+
   ![Add Custom App](doc_images/gnosis.png)
 
 - Finally, enter `http://localhost:3000` as the Safe App URL and it should detect the locally-running Gringott's.
+
   ![Add Custom App](doc_images/add_safe_app.png)
